@@ -17,8 +17,8 @@ const hbsHelpers = require('./lib/hbsHelpers');
 const db = require('./db.js');
 const middleware = require('./middleware.js')(db);
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index')(db, middleware);
+const usersRouter = require('./routes/users')(db, middleware);
 
 const app = express();
 
