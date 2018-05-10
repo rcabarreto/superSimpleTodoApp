@@ -1,20 +1,43 @@
 'use strict';
 
+require('./polyfills');
+
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
+const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
+
+const exphbs = require('express-handlebars');
+const HandlebarsIntl = require('handlebars-intl');
+const hbsHelpers = require('./lib/hbsHelpers');
+
+const db = require('./db.js');
+const middleware = require('./middleware.js')(db);
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 const app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+app.set('default locale', 'pt-BR');
+
+// configure headers
+app.use(helmet());
+app.disable('x-powered-by');
+
+let hbs = exphbs.create({
+  extname: '.hbs',
+  defaultLayout: 'layout',
+  helpers: hbsHelpers,
+  partialsDir: ['views/partials/']
+});
+
+app.engine(hbs.extname, hbs.engine);
+app.set('view engine', hbs.extname);
+HandlebarsIntl.registerWith(hbs.handlebars);
 
 app.use(logger('dev'));
 app.use(express.json());
