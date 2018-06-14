@@ -8,11 +8,6 @@ const path = require('path');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const sassMiddleware = require('node-sass-middleware');
-
-const exphbs = require('express-handlebars');
-const HandlebarsIntl = require('handlebars-intl');
-const hbsHelpers = require('./lib/hbsHelpers');
 
 const db = require('./db.js');
 const middleware = require('./middleware.js')(db);
@@ -28,27 +23,13 @@ app.set('default locale', 'pt-BR');
 app.use(helmet());
 app.disable('x-powered-by');
 
-let hbs = exphbs.create({
-  extname: '.hbs',
-  defaultLayout: 'layout',
-  helpers: hbsHelpers,
-  partialsDir: ['views/partials/']
-});
 
-app.engine(hbs.extname, hbs.engine);
-app.set('view engine', hbs.extname);
-HandlebarsIntl.registerWith(hbs.handlebars);
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(sassMiddleware({
-  src: path.join(__dirname, 'public'),
-  dest: path.join(__dirname, 'public'),
-  indentedSyntax: false,
-  sourceMap: true
-}));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
@@ -68,6 +49,11 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+// sync the database
+db.sequelize.sync({force:true}).then(() => {
+  // {force:true}
 });
 
 module.exports = app;

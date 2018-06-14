@@ -25,7 +25,7 @@ if (env === 'production') {
 
   sequelize = new Sequelize(undefined, undefined, undefined, {
     'dialect': 'sqlite',
-    'storage': __dirname + '/data/admin.sqlite'
+    'storage': __dirname + '/data/todo.sqlite'
   });
 
 }
@@ -35,9 +35,9 @@ if (env === 'production') {
 let db = {};
 
 // IMPORTS FOR ALL MODELS
-
 db.user = sequelize.import(__dirname + '/models/user.js');
 db.token = sequelize.import(__dirname + '/models/token.js');
+db.todo = sequelize.import(__dirname + '/models/todo.js');
 
 // STARTUP
 db.sequelize = sequelize;
