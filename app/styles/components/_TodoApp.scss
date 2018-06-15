@@ -29,7 +29,7 @@ button {
   font-size: 16px;
   line-height: 24px;
   border-radius: 3px;
-  outline: none;
+  outline: none !important;
 }
 
 .material-icons {
@@ -39,6 +39,7 @@ button {
   height: auto;
   border-radius: 50%;
 }
+
 .material-icons:hover {
   background: rgba(0, 0, 0, 0.1);
 }
@@ -100,9 +101,11 @@ button {
   margin-bottom: 0px;
   z-index: 9;
   position: relative;
+  width: 100%;
 }
 
 .TodoApp__form__input {
+  width: 100%;
   border: 0;
   -webkit-box-flex: 1;
   -ms-flex: 1;
@@ -188,6 +191,7 @@ button {
   border: 1px solid #CCC;
   padding: 4px;
   color: transparent;
+  outline: none;
 }
 .TodoApp__todo__complete-btn:hover {
   background: transparent;
@@ -202,6 +206,7 @@ button {
   padding: 4px;
   color: #777;
   opacity: 0;
+  outline: none;
 }
 .TodoApp__todo__delete-btn:hover {
   background: transparent;

@@ -19,12 +19,13 @@ class Todo extends Component {
       <div className={todoClassName}>
         <div className="TodoApp__todo__primary">
           <button className="material-icons TodoApp__todo__complete-btn" onClick={() => {
-            console.log('vou chamar o dispatch!');
             dispatch(actions.toggleTodo(id));
           }}>done</button>
           <div className="TodoApp__todo__label">{text}</div>
         </div>
-        <button className="material-icons TodoApp__todo__delete-btn">close</button>
+        <button className="material-icons TodoApp__todo__delete-btn" onClick={() => {
+          dispatch(actions.deleteTodo(id));
+        }}>close</button>
       </div>
     )
   }

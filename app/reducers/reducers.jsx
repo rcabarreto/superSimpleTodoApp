@@ -23,6 +23,12 @@ export var todoReducer = (state = [], action) => {
           completedAt: undefined
         }
       ];
+    case 'DELETE_TODO':
+      return state.filter((todo) => {
+        if(todo.id !== action.id) {
+          return todo;
+        }
+      });
     case 'TOGGLE_TODO':
       return state.map((todo) => {
 
