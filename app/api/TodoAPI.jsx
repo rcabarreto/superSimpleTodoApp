@@ -22,12 +22,17 @@ module.exports = {
     return $.isArray(todos) ? todos : [];
   },
 
-  filterTodos: function (todos, showCompleted, searchText) {
+  filterTodos: function (todos, filter, searchText) {
     let filteredTodos = todos;
+
+    // Filter by showActive
+    filteredTodos = filteredTodos.filter((todo) => {
+      return todo.completed || filter.showActive;
+    });
 
     // Filter by showCompleted
     filteredTodos = filteredTodos.filter((todo) => {
-      return !todo.completed || showCompleted;
+      return !todo.completed || filter.showCompleted;
     });
 
     // Filter by searchText

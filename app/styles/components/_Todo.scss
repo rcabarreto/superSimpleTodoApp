@@ -1,0 +1,110 @@
+
+.TodoApp {
+
+  .todoList {
+
+    .todoItemContainer {
+
+      background: #fdfdfd;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      padding: 16px 12px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+
+      .todoItem {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+
+        .completeButton {
+          border: 1px solid #CCC;
+          padding: 4px;
+          color: transparent;
+          outline: none;
+
+          &:hover {
+            background: transparent;
+          }
+        }
+
+        .todoItemLabel {
+          font-size: 20px;
+          margin: 0 12px;
+          color: #333;
+          font-weight: 300;
+        }
+
+
+      }
+
+      .deleteButton {
+        -webkit-transition: all .1s ease-out;
+        transition: all .1s ease-out;
+        padding: 4px;
+        color: #777;
+        opacity: 0;
+        outline: none;
+
+        &:hover {
+          background: transparent;
+          color: red;
+        }
+
+      }
+
+      &:hover {
+        .deleteButton {
+          opacity: 1;
+        }
+      }
+
+
+      &.completed {
+        background: #fdfdfd;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 16px 12px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+
+        &:hover {
+          .deleteButton {
+            opacity: 1;
+          }
+        }
+
+        .completeButton {
+          color: green;
+        }
+
+        .todoItemLabel {
+          color: #CCC;
+          text-decoration: line-through;
+        }
+
+      }
+
+    }
+
+  }
+
+}

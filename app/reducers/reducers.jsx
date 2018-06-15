@@ -10,6 +10,31 @@ export var loaderReducer = (state = false, action) => {
   }
 };
 
+export var filterReducer = (state = {}, action) => {
+  switch (action.type) {
+    case 'SHOW_ALL':
+      return {
+        showActive: true,
+        showCompleted: true
+      };
+    case 'SHOW_ACTIVE':
+      return {
+        showActive: true,
+        showCompleted: false
+      };
+    case 'SHOW_COMPLETED':
+      return {
+        showActive: false,
+        showCompleted: true
+      };
+    default:
+      return {
+        showActive: true,
+        showCompleted: true
+      };
+  }
+};
+
 export var todoReducer = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
@@ -31,10 +56,8 @@ export var todoReducer = (state = [], action) => {
       });
     case 'TOGGLE_TODO':
       return state.map((todo) => {
-
         if(todo.id === action.id) {
           let newState = !todo.completed;
-
           return {
             ...todo,
             completed: newState,

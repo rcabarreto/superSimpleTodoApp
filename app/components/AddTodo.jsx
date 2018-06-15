@@ -16,8 +16,6 @@ class AddTodo extends Component {
     let {dispatch} = this.props;
     let todoText = this.refs.todoText.value;
 
-    console.log(todoText);
-
     if (todoText.length > 0) {
       this.refs.todoText.value = '';
       dispatch(actions.addTodo(todoText));
@@ -28,9 +26,9 @@ class AddTodo extends Component {
 
   render() {
     return (
-      <div className="TodoApp__form">
-        <form className="TodoApp__form" onSubmit={this.handleSubmit}>
-          <input type="text" ref="todoText" className="TodoApp__form__input" placeholder="Add a todo..."/>
+      <div className="addTodo">
+        <form className="addTodoForm" onSubmit={this.handleSubmit}>
+          <input type="text" ref="todoText" className="addTodoInput" placeholder="Add a todo..."/>
         </form>
       </div>
     )

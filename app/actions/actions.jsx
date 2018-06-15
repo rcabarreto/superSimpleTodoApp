@@ -11,6 +11,24 @@ export var toggleShowCompleted = () => {
   };
 };
 
+export var filterShowAll = () => {
+  return {
+    type: 'SHOW_ALL'
+  }
+};
+
+export var filterShowActive = () => {
+  return {
+    type: 'SHOW_ACTIVE'
+  }
+};
+
+export var filterShowCompleted = () => {
+  return {
+    type: 'SHOW_COMPLETED'
+  }
+};
+
 export var addTodo = (text) => {
   return {
     type: 'ADD_TODO',

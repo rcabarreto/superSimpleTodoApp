@@ -22,3 +22,15 @@
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
 }
+
+.material-icons {
+  background: transparent;
+  color: #000;
+  padding: 8px;
+  height: auto;
+  border-radius: 50%;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+}

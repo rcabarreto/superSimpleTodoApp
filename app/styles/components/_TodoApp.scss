@@ -32,21 +32,10 @@ button {
   outline: none !important;
 }
 
-.material-icons {
-  background: transparent;
-  color: #000;
-  padding: 8px;
-  height: auto;
-  border-radius: 50%;
-}
-
-.material-icons:hover {
-  background: rgba(0, 0, 0, 0.1);
-}
 
 .TodoApp {
   width: 600px;
-  margin: 60px;
+  margin: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -54,102 +43,36 @@ button {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+
+  h1 {
+    width: 100%;
+    font-size: 100px;
+    font-weight: 100;
+    text-align: center;
+    color: rgba(175, 47, 47, 0.15);
+    -webkit-text-rendering: optimizeLegibility;
+    -moz-text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility;
+  }
+
 }
 
-.TodoApp__filters {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  padding: 16px;
-  background: transparent;
-}
 
-.TodoApp__filter__btn, .TodoApp__filter__btn--active {
-  background: transparent;
-  color: #999;
-  text-transform: none;
-  font-size: 14px;
-  padding: 0;
-  width: 90px;
-  height: auto;
-  border: 1px solid #999;
-}
-.TodoApp__filter__btn:nth-child(1), .TodoApp__filter__btn--active:nth-child(1) {
-  border-radius: 3px 0 0 3px;
-  border-right: 0;
-}
-.TodoApp__filter__btn:nth-child(2), .TodoApp__filter__btn--active:nth-child(2) {
-  border-radius: 0;
-  border-right: 0;
-}
-.TodoApp__filter__btn:nth-child(3), .TodoApp__filter__btn--active:nth-child(3) {
-  border-radius: 0 3px 3px 0;
-}
 
-.TodoApp__filter__btn--active {
-  background: #999;
-  color: #FFF;
-}
 
-.TodoApp__form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 0px;
-  z-index: 9;
-  position: relative;
-  width: 100%;
-}
 
-.TodoApp__form__input {
-  width: 100%;
-  border: 0;
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  padding: 24px 16px;
-  display: block;
-  font-size: 24px;
-  outline: none;
-  background: #FFF;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
 
-.TodoApp__form__add-btn {
-  height: auto;
-  padding: 0 24px;
-  margin-left: 8px;
-}
 
-.TodoApp__todo, .TodoApp__todo--completed {
-  background: #fdfdfd;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding: 16px 12px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
-}
-.TodoApp__todo + .TodoApp__todo, .TodoApp__todo--completed + .TodoApp__todo, .TodoApp__todo + .TodoApp__todo--completed, .TodoApp__todo--completed + .TodoApp__todo--completed {
+.TodoApp__todo + .TodoApp__todo,
+.TodoApp__todo--completed + .TodoApp__todo,
+.TodoApp__todo + .TodoApp__todo--completed,
+.TodoApp__todo--completed + .TodoApp__todo--completed {
   border-top: 1px solid #EEE;
 }
-.TodoApp__todo.editing, .editing.TodoApp__todo--completed {
-  padding: 0;
-}
-.TodoApp__todo:hover .TodoApp__todo__delete-btn, .TodoApp__todo--completed:hover .TodoApp__todo__delete-btn {
-  opacity: 1;
-}
 
-.TodoApp__todo--completed .TodoApp__todo__complete-btn {
-  color: green;
+.TodoApp__todo.editing,
+.editing.TodoApp__todo--completed {
+  padding: 0;
 }
 
 .TodoApp__todo__edit-input {
@@ -164,54 +87,11 @@ button {
   outline: none;
 }
 
-.TodoApp__todo__label {
-  font-size: 20px;
-  margin: 0 12px;
-  color: #333;
-  font-weight: 300;
-}
-.TodoApp__todo--completed .TodoApp__todo__label {
-  color: #CCC;
-  text-decoration: line-through;
-}
 
-.TodoApp__todo__primary {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.TodoApp__todo__complete-btn {
-  border: 1px solid #CCC;
-  padding: 4px;
-  color: transparent;
-  outline: none;
-}
-.TodoApp__todo__complete-btn:hover {
-  background: transparent;
-}
 .editing .TodoApp__todo__complete-btn {
   display: none;
 }
 
-.TodoApp__todo__delete-btn {
-  -webkit-transition: all .1s ease-out;
-  transition: all .1s ease-out;
-  padding: 4px;
-  color: #777;
-  opacity: 0;
-  outline: none;
-}
-.TodoApp__todo__delete-btn:hover {
-  background: transparent;
-  color: red;
-}
 .editing .TodoApp__todo__delete-btn {
   display: none;
 }

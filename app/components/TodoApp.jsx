@@ -15,6 +15,7 @@ class TodoApp extends Component {
   render() {
     return (
       <React.Fragment>
+        <h1>My Todo List</h1>
         <Filters/>
         <AddTodo/>
         <TodoList/>

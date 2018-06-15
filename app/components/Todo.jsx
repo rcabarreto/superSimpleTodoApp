@@ -13,17 +13,17 @@ class Todo extends Component {
   render() {
 
     let {id, text, completed, createdAt, completedAt, dispatch} = this.props;
-    let todoClassName = completed ? 'TodoApp__todo--completed' : 'TodoApp__todo';
+    let todoClassName = completed ? 'completed' : '';
 
     return (
-      <div className={todoClassName}>
-        <div className="TodoApp__todo__primary">
-          <button className="material-icons TodoApp__todo__complete-btn" onClick={() => {
+      <div className={"todoItemContainer "+todoClassName}>
+        <div className="todoItem">
+          <button className="material-icons completeButton" onClick={() => {
             dispatch(actions.toggleTodo(id));
           }}>done</button>
-          <div className="TodoApp__todo__label">{text}</div>
+          <div className="todoItemLabel">{text}</div>
         </div>
-        <button className="material-icons TodoApp__todo__delete-btn" onClick={() => {
+        <button className="material-icons deleteButton" onClick={() => {
           dispatch(actions.deleteTodo(id));
         }}>close</button>
       </div>

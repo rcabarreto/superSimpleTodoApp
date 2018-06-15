@@ -11,13 +11,9 @@ class TodoList extends Component {
     super(props);
   }
 
-
-
-
   render() {
 
-    let {todos} = this.props;
-    let showCompleted = true;
+    let {todos, filter} = this.props;
     let searchText = '';
 
     let renderTodos = () => {
@@ -27,7 +23,7 @@ class TodoList extends Component {
         );
       }
 
-      return TodoAPI.filterTodos(todos, showCompleted, searchText).map((todo) => {
+      return TodoAPI.filterTodos(todos, filter, searchText).map((todo) => {
         return (
           <Todo key={todo.id} {...todo}/>
         );
@@ -36,7 +32,7 @@ class TodoList extends Component {
 
 
     return (
-      <div className="TodoApp__todo-list">
+      <div className="todoList">
         {renderTodos()}
       </div>
     )
