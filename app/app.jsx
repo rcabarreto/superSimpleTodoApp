@@ -12,11 +12,18 @@ import * as configureStore from 'configureStore'
 
 const store = configureStore.configure();
 
+// load and update state with the selected filters
+let initialFilter = TodoAPI.getFilters();
+store.dispatch(actions.setFilter(initialFilter));
+
 store.subscribe(() => {
   let state = store.getState();
+  console.log('New state', state);
   TodoAPI.setTodos(state.todos);
+  TodoAPI.setFilters(state.filter);
 });
 
+// load and update state with user's todos
 let initialTodos = TodoAPI.getTodos();
 store.dispatch(actions.addTodos(initialTodos));
 

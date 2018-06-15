@@ -5,6 +5,14 @@ export var setSearchText = (searchText) => {
   };
 };
 
+export var setFilter = (filter) => {
+  return {
+    type: 'SET_FILTER',
+    showActive: filter.showActive,
+    showCompleted: filter.showCompleted
+  }
+};
+
 export var filterShowAll = () => {
   return {
     type: 'SHOW_ALL'

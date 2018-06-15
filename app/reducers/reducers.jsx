@@ -12,6 +12,11 @@ export var loaderReducer = (state = false, action) => {
 
 export var filterReducer = (state = {}, action) => {
   switch (action.type) {
+    case 'SET_FILTER':
+      return {
+        showActive: action.showActive,
+        showCompleted: action.showCompleted
+      };
     case 'SHOW_ALL':
       return {
         showActive: true,
@@ -28,10 +33,7 @@ export var filterReducer = (state = {}, action) => {
         showCompleted: true
       };
     default:
-      return {
-        showActive: true,
-        showCompleted: false
-      };
+      return state;
   }
 };
 

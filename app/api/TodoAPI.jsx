@@ -1,26 +1,43 @@
 const $ = require('jquery');
 
 
-
-export var setTodos = (todos) => {
-  if ($.isArray(todos)) {
-    localStorage.setItem('todos', JSON.stringify(todos));
-    return todos;
+export var setTodos = (todoList) => {
+  if ($.isArray(todoList)) {
+    localStorage.setItem('todoList', JSON.stringify(todoList));
+    return todoList;
   }
 };
 
-
 export var getTodos = () => {
-  let stringTodos = localStorage.getItem('todos');
-  let todos = [];
+  let stringTodos = localStorage.getItem('todoList');
+  let todoList = [];
 
   try {
-    todos = JSON.parse(stringTodos);
+    todoList = JSON.parse(stringTodos);
   } catch (e) {
-
+    console.log('Error fetching todo list!');
   }
 
-  return $.isArray(todos) ? todos : [];
+  return $.isArray(todoList) ? todoList : [];
+
+};
+
+export var setFilters = (filters) => {
+  localStorage.setItem('filters', JSON.stringify(filters));
+  return filters;
+};
+
+export var getFilters = () => {
+  let stringFilters = localStorage.getItem('filters');
+  let filters = {};
+
+  try {
+    filters = JSON.parse(stringFilters);
+  } catch (e) {
+    console.log('Error fetching filters!');
+  }
+
+  return $.isPlainObject(filters) ? filters : {};
 
 };
 
