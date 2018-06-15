@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import { BrowserRouter as Router, Route, Redirect, hashHistory, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import Filters from './Filters'

@@ -21,9 +21,7 @@
   direction: ltr;
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
-}
 
-.material-icons {
   background: transparent;
   color: #000;
   padding: 8px;
@@ -33,4 +31,6 @@
   &:hover {
     background: rgba(0, 0, 0, 0.1);
   }
+
 }
+

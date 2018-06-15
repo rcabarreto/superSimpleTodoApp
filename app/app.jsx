@@ -5,15 +5,15 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 
 import TodoApp from './components/TodoApp'
+
 import * as actions from './actions/actions'
+import * as TodoAPI from './api/TodoAPI'
+import * as configureStore from 'configureStore'
 
-const store = require('configureStore').configure();
-
-import TodoAPI from './api/TodoAPI'
+const store = configureStore.configure();
 
 store.subscribe(() => {
   let state = store.getState();
-  console.log('New state', state);
   TodoAPI.setTodos(state.todos);
 });
 

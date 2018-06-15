@@ -5,12 +5,6 @@ export var setSearchText = (searchText) => {
   };
 };
 
-export var toggleShowCompleted = () => {
-  return {
-    type: 'TOGGLE_SHOW_COMPLETED'
-  };
-};
-
 export var filterShowAll = () => {
   return {
     type: 'SHOW_ALL'

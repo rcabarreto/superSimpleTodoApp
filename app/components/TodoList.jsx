@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
-import { BrowserRouter as Router, Route, Redirect, hashHistory, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import Todo from './Todo'
-import TodoAPI from '../api/TodoAPI'
+import * as TodoAPI from '../api/TodoAPI'
 
 class TodoList extends Component {
 

@@ -30,7 +30,7 @@ export var filterReducer = (state = {}, action) => {
     default:
       return {
         showActive: true,
-        showCompleted: true
+        showCompleted: false
       };
   }
 };
