@@ -52,7 +52,7 @@ app.use(function(err, req, res, next) {
 });
 
 // sync the database
-db.sequelize.sync({force:true}).then(() => {
+db.sequelize.sync().then(() => {
   // {force:true}
 });
 
