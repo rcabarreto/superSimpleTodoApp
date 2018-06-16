@@ -65,6 +65,8 @@ $ docker-compose up
 * [React](https://getbootstrap.com/docs/3.3/)
 * [Redux](https://getbootstrap.com/docs/3.3/)
 * [Bootstrap 4](https://getbootstrap.com/docs/3.3/)
+* [Babel](https://babeljs.io/)
+* [WebPack](https://webpack.js.org/)
 
 ### Back-end
 * [Node.js](https://nodejs.org/en/about/)
