@@ -3,8 +3,22 @@
 
   .todoList {
 
-    .todoItemContainer {
+    p.message {
+      width: 100%;
+      border: 0;
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      padding: 24px 16px;
+      display: block;
+      color: #bcbcbc;
+      font-size: 24px;
+      outline: none;
+      background: #FFF;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
+    .todoItemContainer {
       background: #fdfdfd;
       display: -webkit-box;
       display: -ms-flexbox;
@@ -46,8 +60,6 @@
           color: #333;
           font-weight: 300;
         }
-
-
       }
 
       .deleteButton {
@@ -62,7 +74,6 @@
           background: transparent;
           color: red;
         }
-
       }
 
       &:hover {
@@ -70,7 +81,6 @@
           opacity: 1;
         }
       }
-
 
       &.completed {
         background: #fdfdfd;
@@ -100,11 +110,7 @@
           color: #CCC;
           text-decoration: line-through;
         }
-
       }
-
     }
-
   }
-
 }

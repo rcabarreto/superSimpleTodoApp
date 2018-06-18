@@ -1,13 +1,13 @@
 'use strict';
 
-require('./polyfills');
-
-const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
+const createError = require('http-errors');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+
+const hbsHelpers = require('./lib/hbsHelpers');
 
 const db = require('./db.js');
 const middleware = require('./middleware.js')(db);
@@ -22,8 +22,6 @@ app.set('default locale', 'pt-BR');
 // configure headers
 app.use(helmet());
 app.disable('x-powered-by');
-
-
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -48,12 +46,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
-});
-
-// sync the database
-db.sequelize.sync().then(() => {
-  // {force:true}
+  res.send('404');
 });
 
 module.exports = app;

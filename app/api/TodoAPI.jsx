@@ -42,7 +42,7 @@ export var getFilters = () => {
 };
 
 
-export var filterTodos = (todos, filter, searchText) => {
+export var filterTodos = (todos, filter) => {
   let filteredTodos = todos;
 
   // Filter by showActive
@@ -55,11 +55,11 @@ export var filterTodos = (todos, filter, searchText) => {
     return !todo.completed || filter.showCompleted;
   });
 
-  // Filter by searchText
-  filteredTodos = filteredTodos.filter((todo) => {
-    let text = todo.text.toLowerCase();
-    return searchText.length === 0 || text.indexOf(searchText) > -1;
-  });
+  // // Filter by searchText
+  // filteredTodos = filteredTodos.filter((todo) => {
+  //   let text = todo.text.toLowerCase();
+  //   return searchText.length === 0 || text.indexOf(searchText) > -1;
+  // });
 
   // Sort todos with non-completed first
   filteredTodos.sort((a, b) => {

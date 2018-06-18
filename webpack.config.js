@@ -2,15 +2,15 @@ const webpack = require('webpack');
 const path = require('path');
 const envFile = require('node-env-file');
 
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-const HtmlWebPackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 try {
   envFile(path.join(__dirname, 'config/' + process.env.NODE_ENV + '.env'));
 } catch (e) {
-
+  console.log("Error: Can't find .env file");
 }
 
 
@@ -55,7 +55,8 @@ const config = {
       applicationStyles: path.resolve(__dirname, 'app/styles/app.scss'),
       actions: path.resolve(__dirname, 'app/actions/actions.jsx'),
       reducers: path.resolve(__dirname, 'app/reducers/reducers.jsx'),
-      configureStore: path.resolve(__dirname, 'app/store/configureStore.jsx')
+      configureStore: path.resolve(__dirname, 'app/store/configureStore.jsx'),
+      todoAPI: path.resolve(__dirname, 'app/api/TodoAPI.jsx')
     },
     extensions: ['.js', '.jsx']
   },
