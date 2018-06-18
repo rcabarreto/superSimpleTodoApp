@@ -55,12 +55,6 @@ export var filterTodos = (todos, filter) => {
     return !todo.completed || filter.showCompleted;
   });
 
-  // // Filter by searchText
-  // filteredTodos = filteredTodos.filter((todo) => {
-  //   let text = todo.text.toLowerCase();
-  //   return searchText.length === 0 || text.indexOf(searchText) > -1;
-  // });
-
   // Sort todos with non-completed first
   filteredTodos.sort((a, b) => {
     if (!a.completed && b.completed) {

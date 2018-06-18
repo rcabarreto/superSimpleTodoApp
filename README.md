@@ -50,7 +50,7 @@ I created a Dockerfile to containerize this project making it easy to deploy to 
 
 If you want to try the Docker deployment, just add the following to your hosts file.
 ````
-127.0.0.1    www.vanhackforum.com app.vanhackforum.com pma.vanhackforum.com
+127.0.0.1    www.todoapp.com app.todoapp.com pma.todoapp.com
 ````
 
 Then just cd into the project and run
