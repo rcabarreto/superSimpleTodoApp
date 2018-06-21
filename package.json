@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "test": "karma start",
-    "start": "node ./bin/www"
+    "start": "webpack && node ./bin/www"
   },
   "dependencies": {
     "bcrypt": "^2.0.1",
