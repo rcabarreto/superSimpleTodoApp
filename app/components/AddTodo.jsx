@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import * as actions from '../actions/actions'
+import { addTodo } from '../actions/actions'
 
 class AddTodo extends Component {
 
@@ -17,13 +17,17 @@ class AddTodo extends Component {
 
     if (todoText.length > 0) {
       this.refs.todoText.value = '';
-      dispatch(actions.addTodo(todoText));
+      dispatch(addTodo(todoText));
     } else {
       this.refs.todoText.focus();
     }
   }
 
   render() {
+
+    let properties = this.props;
+    console.log(JSON.stringify(properties));
+
     return (
       <div className="addTodo">
         <form className="addTodoForm" onSubmit={this.handleSubmit}>
@@ -36,6 +40,3 @@ class AddTodo extends Component {
 }
 
 export default connect()(AddTodo);
-
-
-
