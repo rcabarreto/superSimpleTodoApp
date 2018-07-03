@@ -9,11 +9,17 @@ const Todo = (props) => {
   let todoClassName = completed ? 'completed' : '';
 
   let render_star = (star) => {
+
+    let starClass = 'starButton';
+    let starIcon = 'star_border';
+
     if (star) {
-      return 'star';
-    } else {
-      return 'star_border';
+      starClass = 'starButtonChecked';
+      starIcon = 'star';
     }
+
+    return <button className={"material-icons "+starClass} onClick={() => { dispatch(toggleStar(id)) }}>{starIcon}</button>;
+
   };
 
   return (
@@ -24,7 +30,7 @@ const Todo = (props) => {
         <div>{star}</div>
       </div>
       <button className="material-icons deleteButton" onClick={() => { dispatch(deleteTodo(id)) }}>close</button>
-      <button className="material-icons starButton" onClick={() => { dispatch(toggleStar(id)) }}>{render_star(star)}</button>
+      {render_star(star)}
     </div>
   )
 

@@ -60,6 +60,15 @@
           color: #333;
           font-weight: 300;
         }
+
+      }
+
+      .starButton {
+
+      }
+
+      .starButtonChecked {
+        color: #ff0000;
       }
 
       .deleteButton {
@@ -72,7 +81,7 @@
 
         &:hover {
           background: transparent;
-          color: red;
+          color: #ff0000;
         }
       }
 
