@@ -55,12 +55,12 @@ export var filterTodos = (todos, filter) => {
     return !todo.completed || filter.showCompleted;
   });
 
-  // Sort todos with non-completed first
+  // Sort todos with star first
   filteredTodos.sort((a, b) => {
-    if (!a.completed && b.completed) {
-      return -1;
-    } else if (a.completed && !b.completed) {
+    if (!a.star && b.star) {
       return 1;
+    } else if (a.star && !b.star) {
+      return -1;
     } else {
       return 0;
     }

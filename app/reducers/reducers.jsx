@@ -46,7 +46,9 @@ export var todoReducer = (state = [], action) => {
           id: uuid(),
           text: action.text,
           completed: false,
+          star: false,
           createdAt: moment().unix(),
+          updatedAt: moment().unix(),
           completedAt: undefined
         }
       ];
@@ -63,7 +65,21 @@ export var todoReducer = (state = [], action) => {
           return {
             ...todo,
             completed: newState,
+            updatedAt: moment().unix(),
             completedAt: newState ? moment().unix() : undefined
+          };
+        } else {
+          return todo;
+        }
+      });
+    case 'TOGGLE_STAR':
+      return state.map((todo) => {
+        if(todo.id === action.id) {
+          let newState = !todo.star;
+          return {
+            ...todo,
+            star: newState,
+            updatedAt: moment().unix()
           };
         } else {
           return todo;

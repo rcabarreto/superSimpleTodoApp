@@ -45,6 +45,13 @@ export var addTodos = (todos) => {
   };
 };
 
+export var toggleStar = (id) => {
+  return {
+    type: 'TOGGLE_STAR',
+    id
+  };
+};
+
 export var toggleTodo = (id) => {
   return {
     type: 'TOGGLE_TODO',
