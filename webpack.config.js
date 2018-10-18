@@ -10,7 +10,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 try {
   envFile(path.join(__dirname, 'config/' + process.env.NODE_ENV + '.env'));
 } catch (e) {
-
+  console.log('');
 }
 
 
@@ -18,7 +18,7 @@ const config = {
   mode: process.env.NODE_ENV,
   entry: [
     'script-loader!jquery/dist/jquery.min.js',
-    './app/app.jsx'
+    './src/app.jsx'
   ],
   output: {
     filename: '[name].[hash].js',
@@ -26,7 +26,7 @@ const config = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: './app/template/index.html',
+      template: './src/template/index.html',
       title: 'TodoApp'
     }),
     new CleanWebpackPlugin(['public']),
@@ -47,16 +47,16 @@ const config = {
   resolve: {
     modules: [
       'node_modules',
-      './app/components',
-      './app'
+      './src/components',
+      './src'
     ],
     alias: {
-      app: 'app',
-      applicationStyles: path.resolve(__dirname, 'app/styles/app.scss'),
-      actions: path.resolve(__dirname, 'app/actions/actions.jsx'),
-      reducers: path.resolve(__dirname, 'app/reducers/reducers.jsx'),
-      configureStore: path.resolve(__dirname, 'app/store/configureStore.jsx'),
-      todoAPI: path.resolve(__dirname, 'app/api/TodoAPI.jsx')
+      app: 'src',
+      applicationStyles: path.resolve(__dirname, 'src/styles/app.scss'),
+      actions: path.resolve(__dirname, 'src/actions/actions.jsx'),
+      reducers: path.resolve(__dirname, 'src/reducers/reducers.jsx'),
+      configureStore: path.resolve(__dirname, 'src/store/configureStore.jsx'),
+      todoAPI: path.resolve(__dirname, 'src/api/TodoAPI.jsx')
     },
     extensions: ['.js', '.jsx']
   },
@@ -64,12 +64,12 @@ const config = {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: ['node_modules', 'bower_components'],
+        exclude: /node_modules/,
         use: [
           {
             loader: 'babel-loader',
             query: {
-              presets: ['react', 'es2015', 'stage-2']
+              presets: ['react', 'env', 'stage-2']
             }
           }
         ],
@@ -111,7 +111,10 @@ const config = {
       }
     ]
   },
-  devtool: process.env.NODE_ENV === 'production' ? undefined : 'cheap-module-eval-source-map'
+  devtool: process.env.NODE_ENV === 'production' ? undefined : 'cheap-module-eval-source-map',
+  devServer: {
+    contentBase: path.join(__dirname, 'public')
+  }
 };
 
 
