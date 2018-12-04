@@ -24,10 +24,6 @@ class AddTodo extends Component {
   }
 
   render() {
-
-    let properties = this.props;
-    console.log(JSON.stringify(properties));
-
     return (
       <div className="addTodo">
         <form className="addTodoForm" onSubmit={this.handleSubmit}>
