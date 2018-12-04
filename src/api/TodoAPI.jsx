@@ -23,18 +23,22 @@ export var getTodos = () => {
 };
 
 export var setFilters = (filters) => {
-  localStorage.setItem('filters', JSON.stringify(filters));
+  localStorage.setItem('todoFilters', JSON.stringify(filters));
   return filters;
 };
 
 export var getFilters = () => {
-  let stringFilters = localStorage.getItem('filters');
+  let stringFilters = localStorage.getItem('todoFilters');
   let filters = {};
 
   try {
     filters = JSON.parse(stringFilters);
   } catch (e) {
     console.log('Error fetching filters!');
+  }
+
+  if ($.isEmptyObject(filters)) {
+    filters = {showActive: true, showCompleted: true};
   }
 
   return $.isPlainObject(filters) ? filters : {};
