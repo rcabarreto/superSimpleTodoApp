@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import Todo from './Todo'
-import * as TodoAPI from '../api/TodoAPI'
+import * as api from '../api'
 
 class TodoList extends Component {
 
@@ -16,7 +16,7 @@ class TodoList extends Component {
 
     let renderTodos = () => {
 
-      let filteredTodos = TodoAPI.filterTodos(todos, filter);
+      let filteredTodos = api.filterTodos(todos, filter);
 
       if (filteredTodos.length === 0) {
         return (

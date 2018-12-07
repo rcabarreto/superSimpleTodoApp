@@ -1,6 +1,6 @@
 import { combineReducers, createStore, compose, applyMiddleware } from 'redux';
 
-import { filterReducer, todoReducer } from 'reducers'
+import { filterReducer, todoReducer } from '../reducers'
 
 export var configure = (initialState = {}) => {
 

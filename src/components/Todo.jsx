@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { toggleTodo, deleteTodo, toggleStar } from '../actions/actions'
+import { toggleTodo, deleteTodo, toggleStar } from '../actions'
 
 const Todo = (props) => {
 

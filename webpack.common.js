@@ -47,10 +47,8 @@ const config = {
     alias: {
       app: 'src',
       applicationStyles: path.resolve(__dirname, 'src/styles/app.scss'),
-      actions: path.resolve(__dirname, 'src/actions/actions.jsx'),
       reducers: path.resolve(__dirname, 'src/reducers/reducers.jsx'),
-      configureStore: path.resolve(__dirname, 'src/store/configureStore.jsx'),
-      todoAPI: path.resolve(__dirname, 'src/api/TodoAPI.jsx')
+      configureStore: path.resolve(__dirname, 'src/store/configureStore.jsx')
     },
     extensions: ['.js', '.jsx']
   },

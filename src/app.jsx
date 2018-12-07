@@ -5,28 +5,30 @@ import { Provider } from 'react-redux'
 
 import TodoApp from './components/TodoApp'
 
-import * as actions from 'actions'
-import * as todoAPI from 'todoAPI'
-import * as configureStore from 'configureStore'
+import * as actions from './actions'
+import * as api from './api'
+import * as configureStore from './store'
+
+import 'applicationStyles'
+
 
 const store = configureStore.configure();
 
 // load and update state with the selected filters
-let initialFilter = todoAPI.getFilters();
+let initialFilter = api.getFilters();
 store.dispatch(actions.setFilter(initialFilter));
 
 store.subscribe(() => {
   let state = store.getState();
 
-  todoAPI.setTodos(state.todos);
-  todoAPI.setFilters(state.filter);
+  api.setTodos(state.todos);
+  api.setFilters(state.filter);
 });
 
 // load and update state with user's todos
-let initialTodos = todoAPI.getTodos();
+let initialTodos = api.getTodos();
 store.dispatch(actions.addTodos(initialTodos));
 
-import 'applicationStyles'
 
 ReactDOM.render(
   <Provider store={store}>
