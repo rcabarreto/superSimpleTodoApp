@@ -30,11 +30,7 @@ const config = {
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-        API_KEY: JSON.stringify(process.env.API_KEY),
-        AUTH_DOMAIN: JSON.stringify(process.env.AUTH_DOMAIN),
-        DATABASE_URL: JSON.stringify(process.env.DATABASE_URL),
-        STORAGE_BUCKET: JSON.stringify(process.env.STORAGE_BUCKET)
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
     })
   ],
@@ -46,9 +42,7 @@ const config = {
     ],
     alias: {
       app: 'src',
-      applicationStyles: path.resolve(__dirname, 'src/styles/app.scss'),
-      reducers: path.resolve(__dirname, 'src/reducers/reducers.jsx'),
-      configureStore: path.resolve(__dirname, 'src/store/configureStore.jsx')
+      applicationStyles: path.resolve(__dirname, 'src/styles/app.scss')
     },
     extensions: ['.js', '.jsx']
   },
@@ -68,13 +62,7 @@ const config = {
       },
       {
         test: /\.s(a|c)ss$/,
-        use: [{
-          loader: 'style-loader'
-        }, {
-          loader: 'css-loader'
-        }, {
-          loader: 'sass-loader'
-        }],
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'sass-loader' }],
       },
       {
         test: /\.(gif|png|jpe?g)$/i,
@@ -104,6 +92,5 @@ const config = {
     ]
   }
 };
-
 
 module.exports = config;
