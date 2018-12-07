@@ -13,17 +13,11 @@ try {
   console.log('Error loading env file!');
 }
 
-
 const config = {
-  mode: process.env.NODE_ENV,
   entry: [
     'script-loader!jquery/dist/jquery.min.js',
     './src/app.jsx'
   ],
-  output: {
-    filename: '[name].[hash].js',
-    path: path.resolve('./public'),
-  },
   plugins: [
     new HtmlWebPackPlugin({
       template: './src/template/index.html',
@@ -110,10 +104,6 @@ const config = {
         }]
       }
     ]
-  },
-  devtool: process.env.NODE_ENV === 'production' ? undefined : 'cheap-module-eval-source-map',
-  devServer: {
-    contentBase: path.join(__dirname, 'public')
   }
 };
 
